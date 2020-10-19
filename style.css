@@ -1,0 +1,242 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+.competences {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 87vh;
+    background: #f3f3f3;
+    overflow: hidden;
+}
+
+.container1 {
+    position: relative;
+    width: 1050px;    /*  similaire 80% */
+    display: flex;
+    flex-wrap: wrap;    /* retour à la ligne en cas de resolution plus petite*/
+    justify-content: space-between;
+    transition: 0.5s;
+    /* border: 1px solid red; */
+    transform: skewY(-5deg);   /* Inclinaison du container */
+}
+
+
+/******* CARD *******/
+
+.container1 .card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    transition: 0.5s;  /* durée animation vers le haut */
+}
+
+
+/******* CARD TRANCHE HAUTE *******/
+
+.container1 .card:before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: #506e8b;       /* Couleur bordure haut */
+    transform-origin: bottom;
+    transform: skewX(45deg);  /*  Inclinaison languette du haut pour effet 3D*/
+    transition: 0.5s;
+}
+
+
+
+/******* CARD TRANCHE GAUCHE *******/
+
+.container1 .card:after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    width: 15px;
+    height: 100%;
+    background: #d9d9d9;   /* Couleur de l'arrete en haut à gauche */   
+    transform-origin: left;
+    transform: skewY(45deg);  /*  Inclinaison languette du haut pour effet 3D*/
+    transition: 0.5s;
+    border-top: 200px solid #506e8b; /* Partie basse (texte) bordure gauche */
+}
+
+
+
+.container1 .card:hover {
+    transform: translateY(-40px);  /* mouvement vers le haut vertical */
+}
+
+
+
+/******* CARD HEADER IMAGE *******/
+
+.container1 .imgBox {
+    position: relative;
+    width: 298px;
+    height: 200px;
+    background: #3a506b;
+    display: flex;
+    justify-content: center;
+    /* padding-top: 20px; */
+    align-items: center;
+    flex-direction: column; /* Pour que le titre se place sous l'image */
+}
+
+
+/******* IMAGE *******/
+
+.container1 .card img {
+    max-width: 100px
+}
+
+
+/******* TITRE *******/
+
+.container1 .card .imgBox h3 {
+    position: relative;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+
+/******* CARD BODY CONTENU TEXT *******/
+
+.container1 .card .content {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    padding: 20px;
+    color: #777;
+    background: #fff;
+    text-align: center;
+    font-size: 12px;
+}
+
+
+.container1 .card .content:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(transparent,transparent,rgba(0, 0, 0, 0.1));
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    transition: 0.5s;
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+.container1 .card:hover .content:before {
+    transform: translateY(40px) skewX(45deg);
+    filter: blur(5px);
+    opacity: 0.5s;
+}
+
+
+.container1 .card:nth-child(1) {
+    z-index: 3;
+}
+
+
+.container1 .card:nth-child(2) {
+    z-index: 2;
+}
+
+
+.container1 .card:nth-child(3) {
+    z-index: 1;
+}
+
+
+
+/******* LOGO *******/
+
+.logoWordPress {
+    width: 60px;
+
+}
+
+
+.logoReact {
+    width: 60px;
+}
+
+
+.logoSQL {
+    width: 70px;
+}
+
+
+.logoSkill {
+    background: white;
+    width: 60px
+}
+
+
+/******* JAUGE *******/
+
+
+.bar {
+    position: absolute;
+    top: 170px;
+    left: auto;
+    height: 8px;
+    width: 180px;
+}
+
+.emptybar {
+    background-color: #2e3033;
+    width: 100%;
+    height: 100%;
+}
+
+.filledbar {
+    position: absolute;
+    top: 0px;
+    z-index: 3;
+    width: 0px;
+    height: 100%;
+    /* background: red; */
+    background: linear-gradient(90deg, rgba(0,154,217,1) 0%, rgba(217,147,0,1) 65%, rgba(255,186,0,1) 100%);
+    transition: 0.6s ease-out;
+}
+  
+.card:hover .filledbar {          
+    transition: 0.4s ease-out;
+}
+
+.card:hover .jaugeHTML {
+    width : 75%;            /* remplissage de la jauge*/
+}
+
+
+.card:hover .jaugeJS {
+    width : 60%;           
+}
+
+
+.card:hover .jaugeR {
+    width : 20%;           
+}
+
+
+.card:hover .jaugeWord {
+    width : 70%;           
+}
+
+
+.card:hover .jaugeSQL {
+    width : 70%;           
+}
